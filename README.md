@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # airbnb
 =======
 # airbnb_mongoose
