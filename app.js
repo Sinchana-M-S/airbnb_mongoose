@@ -64,7 +64,7 @@ const multerOptions = {
 };
 
 app.use(express.urlencoded()); //to get req body
-app.use(multer(multerOptions).single("photo")); //to get image uploads
+app.use(multer(multerOptions).array("photo")); //to get image uploads
 app.use(express.static(path.join(rootDir, "public")));
 app.use("/uploads", express.static(path.join(rootDir, "uploads"))); //makes uploads folder public like to render on page
 app.use("/host/uploads", express.static(path.join(rootDir, "uploads")));

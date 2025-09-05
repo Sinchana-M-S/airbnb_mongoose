@@ -50,11 +50,11 @@ exports.postAddHome = (req, res, next) => {
   console.log(houseName, price, location, rating, description);
   console.log(req.files);
 
-  if (!req.files || !req.files.photo) {
+  if (!req.files || !req.files.length) {
     return res.status(422).send("No image provided");
   }
 
-  const photo = req.files.photo[0].path;
+  const photo = req.files[0].path;
 
   const home = new Home({
     houseName,
@@ -86,7 +86,7 @@ exports.postEditHome = (req, res, next) => {
         fs.unlink(home.photo, (err) => {
           if (err) {
             console.error("Error deleting old photo:", err);
-          } 
+          }
         });
         //if a new file is uploaded
         home.photo = req.file.path;
